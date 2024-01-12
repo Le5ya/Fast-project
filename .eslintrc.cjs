@@ -16,6 +16,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    "react/prop-types": 0,
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "no-console": "off",
@@ -174,7 +175,7 @@ module.exports = {
     "quote-props": ["error", "consistent"],
     "quotes": [
       "error",
-      "single",
+      "duble",
       {
         "allowTemplateLiterals": true
       }

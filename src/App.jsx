@@ -1,19 +1,13 @@
 import { Header } from "./views/Header/Header";
+import { Footer } from "./views/Footer/Footer";
+import { Main } from "./views/Main/Main";
 
 const App = () => (
   <>
     <Header />
-    <main>
-      <p>
-        Техт
-      </p>
-    </main>
-    <footer>
-
-    </footer>
-
+    <Main />
+    <Footer />
   </>
 );
-
 
 export default App;

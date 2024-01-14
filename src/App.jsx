@@ -1,4 +1,4 @@
-import { UseDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Header } from "./views/Header/Header";
 import { Footer } from "./views/Footer/Footer";
 import { Main } from "./views/Main/Main";

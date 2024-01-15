@@ -13,8 +13,8 @@ export const Main = () => {
   } = useSelector((state) => state.categories);
   const {
     data: dataGoods,
-    loading: loadingGoods,
-    error: errorGoods,
+    //loading: loadingGoods,
+    //error: errorGoods,
   } = useSelector((state) => state.goods);
 
   useEffect(() => {
@@ -28,8 +28,8 @@ export const Main = () => {
   if (loadingCategories) return <div>Загрузка...</div>;
   if (errorCategories) return <div>Ошибка: {errorCategories}</div>;
 
-  if (loadingGoods) return <div>Загрузка...</div>;
-  if (errorGoods) return <div>Ошибка: {errorGoods}</div>;
+  //if (loadingGoods) return <div>Загрузка...</div>;
+  //if (errorGoods) return <div>Ошибка: {errorGoods}</div>;
 
   return (
     <main>

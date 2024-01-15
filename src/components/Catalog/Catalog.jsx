@@ -5,13 +5,13 @@ export const Catalog = ({ data }) => (
   <nav className={s.catalog}>
     <Container className={s.container}>
       <ul className={s.list}>
-        {data.map((item, i) => {
+        {data.map((item, i) => (
           <li key={i}>
             <a className={s.link} href={`category?slug=${item}`}>
-              item
+              {item}
             </a>
-          </li>;
-        })}
+          </li>
+        ))}
       </ul>
     </Container>
   </nav>

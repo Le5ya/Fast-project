@@ -10,7 +10,7 @@ export const fetchCategories = createAsyncThunk(
       "https://koff-api.vercel.app/api/productCategories",
       {
         headers: {
-          Autorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       },
     );

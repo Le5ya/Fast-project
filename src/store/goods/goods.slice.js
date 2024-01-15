@@ -46,4 +46,4 @@ const goodsSlice = createSlice({
       });
   },
 });
-export default goodsSliceSlice.reducer;
+export default goodsSlice.reducer;

@@ -2,22 +2,16 @@ import { Container } from "../../views/Container/Container.jsx";
 import { CardItem } from "../CardItem/CardItem.jsx";
 import s from "./Goods.module.scss";
 
-export const Goods = ({ goods }) => (
+export const Goods = ({ data }) => (
   <section className={s.goods}>
     <Container>
       <h2 className={`${s.title} visually-hidden`}>Список товаров</h2>
       <ul className={s.list}>
-        {/*{goods.map((item, id) => {*/}
-        <li>
-          <CardItem />
-        </li>
-        <li>
-          <CardItem />
-        </li>
-        <li>
-          <CardItem />
-        </li>
-        ;{/*})}*/}
+        {data.map((item) => {
+          <li>
+            <CardItem key={item.id} data={item} />
+          </li>;
+        })}
       </ul>
     </Container>
   </section>

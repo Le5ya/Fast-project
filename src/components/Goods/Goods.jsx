@@ -7,9 +7,9 @@ export const Goods = ({ data }) => (
     <Container>
       <h2 className={`${s.title} visually-hidden`}>Список товаров</h2>
       <ul className={s.list}>
-        {data.map((item) => (
-          <li>
-            <CardItem key={item.id} data={item} />
+        {data.map((item, id) => (
+          <li key={item.id}>
+            <CardItem data={item} />
           </li>
         ))}
       </ul>

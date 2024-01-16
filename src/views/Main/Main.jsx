@@ -25,10 +25,8 @@ export const Main = () => {
     dispatch(fetchGoods());
   }, [dispatch]);
 
-  if (loadingCategories) return <div>Загрузка...</div>;
+  if (loadingCategories || loadingGoods) return <div>Загрузка...</div>;
   if (errorCategories) return <div>Ошибка: {errorCategories}</div>;
-
-  if (loadingGoods) return <div>Загрузка...</div>;
   if (errorGoods) return <div>Ошибка: {errorGoods}</div>;
 
   return (

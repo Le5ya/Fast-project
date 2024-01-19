@@ -1,3 +1,87 @@
 .card {
 	display: block;
+	padding: 33px 0;
+	
+}
+.container {
+	display: grid;
+}
+.title {
+	margin-bottom: 24px;
+}
+.picture {
+	width: 288px;
+	height: 236px;
+	padding: 0px 16px;
+	position: relative;
+	@media (min-width: 768px) {
+		padding: 40px 16px;
+	}
+}
+.sliderMain {
+	padding-bottom: 32px;
+}
+.pagination {
+	  display: flex;
+    width: 256px;
+    height: 32px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 192px;
+    position: absolute;
+    top: 97px;
+    z-index: 100;
+}
+.sliderThumbnails {
+  display: none;
+
+	@media (min-width: 580px) {
+		display: flex;
+		flex-direction: row;
+		margin-bottom: 40px;
+	}
+}
+.item {
+	display: flex;
+	align-items: center;
+}
+.buttons {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+.btn {
+  display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 212px;
+	flex-shrink: 0;
+	color: #fff;
+  border-radius: 32px;
+	border: 1px solid #780096;
+	background: #780096;
+
+	@media (min-width: 580px) {
+		width: 380px;
+		height: 38px;
+		padding: 12px 24px;
+	}
+
+  &:hover {
+    color: #ffffff;
+    border-color: #9200b7;
+    background-color: #9200b7;
+  }
+
+  &:active {
+    color: #c0f;
+    border-color: #c0f;
+    background-color: transparent;
+  }
+}
+.favorite {
+	width: 16px;
+	height: 16px;
+	flex-shrink: 0;
+  cursor: pointer;
 }

@@ -19,7 +19,7 @@ export const Card = () => {
         <div className={s.picture}>
           <div className={s.sliderMain}>
             <Swiper
-              modules={[Thumb]}
+              modules={[Thumbs]}
               thumbs={{ swiper: thumbsSwiper }}
               onSwipeer={setMainSwiper}
               spaceBetween={10}>
@@ -71,7 +71,7 @@ export const Card = () => {
           <p className={s.price}>{"5000".toLocaleString()}&nbsp;₽</p>
           <p className={s.article}>арт. 84348945757</p>
         </div>
-        <div className={caracteristic}>
+        <div className={s.characteristic}>
           <h3>Общие характеристики</h3>
         </div>
       </Container>

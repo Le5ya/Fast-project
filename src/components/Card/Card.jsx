@@ -6,10 +6,12 @@ import s from "./Card.module.scss";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 
+
 export const Card = () => {
   const [mainSwiper, setMainSwiper] = useState(null);
-  const [thumbsSwiper, setThumbSwiper] = useState(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const { productId } = useParams();
+  console.log(productId);
   return (
     <section className={s.card}>
       <Container className={s.container}>

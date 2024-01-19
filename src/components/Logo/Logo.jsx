@@ -1,12 +1,13 @@
 import logoSvg from "./logo.svg";
 import s from "./logo.module.scss";
+import { Link } from "react-router-dom";
 
 export const Logo = () => (
-  <a className={s.link} href="/">
+  <Link className={s.link} to="/">
     <img
       className={s.img}
       src={logoSvg}
       alt="логотип мебельного маркека Koff"
     />
-  </a>
-); 
+  </Link>
+);

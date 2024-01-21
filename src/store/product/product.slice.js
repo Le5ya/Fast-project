@@ -1,19 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_URL } from "../../const";
 
 export const fetchProduct = createAsyncThunk(
-  "products/fetchProduct",
-  async (_, thunkAPI) => {
+  "product/fetchProduct",
+  async (id, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.accessToken;
 
-    const response = await fetch(`${API_URL}api/products/:id`, {
+    const response = await fetch(`${API_URL}api/products/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
     if (!response.ok) {
+      if (response.status === 401) {
+        return thunkAPI.rejectWithValue({
+          status: response.status,
+          error: "Не удалось загрузить сведения о товаре",
+        });
+      }
       throw new Error("Не удалось загрузить сведения о товаре");
     }
     return response.json();
@@ -21,7 +27,7 @@ export const fetchProduct = createAsyncThunk(
 );
 
 const initialState = {
-  data: [],
+  data: null,
   loading: false,
   error: null,
 };

@@ -4,15 +4,19 @@ import { fetchGoods } from "../../store/goods/goods.slice.js";
 import s from "./Goods.module.scss";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 
 export const Goods = () => {
   const dispatch = useDispatch();
+  const [searchParam] = useSearchParams();
+  const category = searchParam.get("category");
+  const q = searchParam.get("q");
 
   const { data, loading, error } = useSelector((state) => state.goods);
 
   useEffect(() => {
-    dispatch(fetchGoods());
-  }, [dispatch]);
+    dispatch(fetchGoods({ category, q }));
+  }, [dispatch, category, q]);
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка: {error}</div>;
@@ -20,13 +24,17 @@ export const Goods = () => {
     <section className={s.goods}>
       <Container>
         <h2 className={`${s.title} visually-hidden`}>Список товаров</h2>
-        <ul className={s.list}>
-          {data.map((item) => (
-            <li key={item.id}>
-              <CardItem {...item} />
-            </li>
-          ))}
-        </ul>
+        {data.length ? (
+          <ul className={s.list}>
+            {data.map((item) => (
+              <li key={item.id}>
+                <CardItem {...item} />
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>По вашему запросу ничего не найдено</p>
+        )}
       </Container>
     </section>
   );

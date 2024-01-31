@@ -2,7 +2,8 @@ import { Link, useLocation, useSearchParams } from "react-router-dom";
 import s from "./Pagination.module.scss";
 
 export const Pagination = ({ pagination }) => {
-  const { currentPage, totalProducts, limit } = pagination;
+  console.log("pagination: ", pagination);
+  const { currentPage, totalProducts, limit, totalPages } = pagination;
 
   const location = useLocation();
   const [searchParam] = useSearchParams();
@@ -20,7 +21,8 @@ export const Pagination = ({ pagination }) => {
 
   const prevPageUrl = prevPageNumber > 0 ? createPageUrl(prevPageNumber) : "";
 
-  const nextPageUrl = nextPageNumber <= 24 ? createPageUrl(nextPageNumber) : "";
+  const nextPageUrl =
+    nextPageNumber <= totalPages ? createPageUrl(nextPageNumber) : "";
 
   const width = currentPage * limit;
   const paginationCurrent =

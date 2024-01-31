@@ -3,13 +3,7 @@ import { API_URL } from "../../const";
 import s from "./CardItem.module.scss";
 import { FavoriteButton } from "../FavoriteButton/FavoriteButton";
 
-export const CardItem = ({
-  name,
-  images: [image],
-
-  price,
-  id,
-}) => (
+export const CardItem = ({ name, images: [image], price, id }) => (
   <article className={s.card}>
     <Link className="link" to={`/product/${id}`}>
       <img className={s.img} src={`${API_URL}${image}`} alt={name} />

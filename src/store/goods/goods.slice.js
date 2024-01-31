@@ -1,8 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { API_URL } from "../../const";
+import { API_URL } from "../../const.js";
 
 export const fetchGoods = createAsyncThunk(
-  "categories/fetchGoods",
+  "products/fetchGoods",
   async (param, thunkAPI) => {
     const state = thunkAPI.getState();
     const token = state.auth.accessToken;
@@ -27,7 +27,7 @@ export const fetchGoods = createAsyncThunk(
       if (response.status === 401) {
         return thunkAPI.rejectWithValue({
           status: response.status,
-          error: "Не удалось получить каталог",
+          error: "Не удалось загрузить товары",
         });
       }
       throw new Error("Не удалось загрузить товары");

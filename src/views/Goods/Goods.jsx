@@ -13,8 +13,8 @@ export const Goods = () => {
   const { data, loading, error, pagination } = useSelector(
     (state) => state.goods,
   );
-  const { favoriteList } = useSelector((state) => state.favorite);
   const { pathname } = useLocation();
+  const { favoriteList } = useSelector((state) => state.favorite);
 
   const category = searchParam.get("category");
   const q = searchParam.get("q");
@@ -24,13 +24,13 @@ export const Goods = () => {
     if (pathname !== "/favorite") {
       dispatch(fetchGoods({ category, q, page }));
     }
-  }, [dispatch, category, q, pathname]);
+  }, [dispatch, category, q, pathname, page]);
 
   useEffect(() => {
     if (pathname === "/favorite") {
       dispatch(fetchGoods({ list: favoriteList.join(","), page }));
     }
-  }, [dispatch, favoriteList, pathname]);
+  }, [dispatch, favoriteList, pathname, page]);
 
   if (loading) return <div>Загрузка...</div>;
   if (error) return <div>Ошибка: {error}</div>;

@@ -35,7 +35,13 @@ export const Pagination = ({ pagination }) => {
   return (
     <div className={s.pagination}>
       <div className={s.bar}>
-        <div className={s.barWidth}></div>
+        <div
+          className={s.barWidth}
+          style={{
+            width: `calc(${
+              width < totalProducts ? width : totalProducts
+            } / ${totalProducts} * 100%)`,
+          }}></div>
       </div>
 
       <div className={s.arrows}>

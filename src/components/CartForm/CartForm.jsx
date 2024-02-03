@@ -3,7 +3,7 @@ import s from "./CartForm.module.scss";
 export const CartForm = () => (
   <form className={s.form}>
     <h3 className={s.subtitle}>Данные для доставки</h3>
-    <fielset className={s.fieldsetInput}>
+    <fieldset className={s.fieldsetInput}>
       <input
         className={s.input}
         type="text"
@@ -32,8 +32,8 @@ export const CartForm = () => (
         className={s.textarea}
         name="сomments"
         placeholder="Комментарии к заказу"></textarea>
-    </fielset>
-    <fielset className={s.fieldsetRadio}>
+    </fieldset>
+    <fieldset className={s.fieldsetRadio}>
       <legend className={s.legend}>Доставка</legend>
       <label className={s.radio}>
         <input
@@ -53,8 +53,8 @@ export const CartForm = () => (
         />
         Самовывоз
       </label>
-    </fielset>
-    <fielset className={s.fieldsetRadio}>
+    </fieldset>
+    <fieldset className={s.fieldsetRadio}>
       <legend className={s.legend}>Оплата</legend>
       <label className={s.radio}>
         <input
@@ -74,6 +74,6 @@ export const CartForm = () => (
         />
         Наличными при получении
       </label>
-    </fielset>
+    </fieldset>
   </form>
 );

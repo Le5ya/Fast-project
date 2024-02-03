@@ -63,3 +63,4 @@ const cartSlice = createSlice({
     builder(addCase);
   },
 });
+export default cartSlice.reducer;

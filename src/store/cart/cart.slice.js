@@ -1,5 +1,6 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { API_URL } from "../../const";
+
 export const fetchCart = createAsyncThunk(
   "cart/fetchCart",
   async (_, { getState, rejectWithValue }) => {
@@ -15,9 +16,11 @@ export const fetchCart = createAsyncThunk(
       });
       if (!response.ok) {
         throw new Error("Не удалось загрузить содержимое корзины");
-        return await response.json();
       }
-    } catch (error) {}
+      return await response.json();
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
   },
 );
 
@@ -37,7 +40,7 @@ export const addProductToCart = createAsyncThunk(
         body: JSON.stringify(productData),
       });
       if (!response.ok) {
-        throw new Error("Не удалось загрузить содержимое корзины");
+        throw new Error("Не удалось добавить товар в корзину");
         return await response.json();
       }
     } catch (error) {}
@@ -60,7 +63,20 @@ const cartSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder(addCase);
+    builder
+      .addCase(fetchCart.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCart.fulfilled, (state, action) => {
+        state.data = action.payload;
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(fetchCart.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      });
   },
 });
 export default cartSlice.reducer;
